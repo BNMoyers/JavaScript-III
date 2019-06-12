@@ -66,6 +66,11 @@ function Hero(attributes){
   this.challenge = function (){
     return `${this.name} challenges you to a battle!`
   };
+  this.attack = function (){
+   Villain.healthPoints = Villain.healthPoints -5;
+  return `${this.name} attacks ${Villain.name} with the ${this.weapons[Math.floor(Math.random()*javascriptWizard.weapons.length)]}! ${Villain.name} takes 5 points of damage!`  
+ };
+
   Hero.prototype = Object.create(Humanoid.prototype)
  
 };
@@ -176,9 +181,10 @@ function Villain(attributes){
   
   console.log(javascriptWizard.challenge());
   console.log(javascriptMonster.answer());
-  console.log(javascriptWizard.weapons());
+  console.log(javascriptWizard.weapons[Math.floor(Math.random()*javascriptWizard.weapons.length)]);
 
+  console.log(javascriptWizard.attack());
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
+  // * Create two new objects, one a villain and one a hero and fight it out with methods! 
