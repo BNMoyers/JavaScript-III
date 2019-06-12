@@ -68,7 +68,12 @@ function Hero(attributes){
   };
   this.attack = function (){
    Villain.healthPoints = Villain.healthPoints -5;
-  return `${this.name} attacks ${Villain.name} with the ${this.weapons[Math.floor(Math.random()*javascriptWizard.weapons.length)]}! ${Villain.name} takes 5 points of damage!`  
+  return `${this.name} attacks ${javascriptMonster.name} with the ${this.weapons[Math.floor(Math.random()*javascriptWizard.weapons.length)]}! ${javascriptMonster.name} takes 5 points of damage!`
+  if(Villain.healthpoints <= 0){
+    return Villain.destroy(); 
+  }  else {
+    return `${Villain.name} prepares to retaliate!`
+  }
  };
 
   Hero.prototype = Object.create(Humanoid.prototype)
