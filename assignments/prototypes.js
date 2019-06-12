@@ -61,6 +61,21 @@ CharacterStats.prototype.takeDamage = function(){
   * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
   * Instances of CharacterStats should have all of the same properties as GameObject.
 */
+function Hero(attributes){
+  Humanoid.call(this, attributes);
+  this.challenge = function (){
+    return `${this.name} challenges you to a battle!`
+  };
+  Hero.prototype = Object.create(Humanoid.prototype)
+};
+
+function Villain(attributes){
+  Humanoid.call(this, attributes);
+  this.answer = function (){
+    return `${this.name} accepts the challenge!`
+  };
+  Hero.prototype = Object.create(Humanoid.prototype)
+};
 
 // Test your work by un-commenting these 3 objects and the list of console logs below:
 
@@ -114,7 +129,38 @@ CharacterStats.prototype.takeDamage = function(){
     ],
     language: 'Elvish',
   });
-
+  
+  const javascriptWizard = new Hero({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 10,
+    },
+    healthPoints: 5,
+    name: 'Brittany',
+    team: 'Web21',
+    weapons: [
+      'Staff of Slack', 'Sword of Debugging', 'Shield of Zoom'
+    ],
+    language: 'Common Tongue',
+  });
+  const javascriptMonster = new Villain({
+    createdAt: new Date(),
+    dimensions: {
+      length: 1,
+      width: 2,
+      height: 4,
+    },
+    healthPoints: 10,
+    name: 'Code Challenge',
+    team: 'Imposter Syndrome',
+    weapons: [
+      'Bow of Broken Code',
+      'Dagger of Doubt',
+    ],
+    language: 'javaScript',
+  });
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -125,7 +171,9 @@ CharacterStats.prototype.takeDamage = function(){
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-
+  
+  console.log(javascriptWizard.challenge());
+  console.log(javascriptMonster.answer());
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
