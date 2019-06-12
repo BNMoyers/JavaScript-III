@@ -67,6 +67,7 @@ function Hero(attributes){
     return `${this.name} challenges you to a battle!`
   };
   Hero.prototype = Object.create(Humanoid.prototype)
+ 
 };
 
 function Villain(attributes){
@@ -74,7 +75,7 @@ function Villain(attributes){
   this.answer = function (){
     return `${this.name} accepts the challenge!`
   };
-  Hero.prototype = Object.create(Humanoid.prototype)
+  Villain.prototype = Object.create(Humanoid.prototype)
 };
 
 // Test your work by un-commenting these 3 objects and the list of console logs below:
@@ -161,6 +162,7 @@ function Villain(attributes){
     ],
     language: 'javaScript',
   });
+  // var randomNum = Math.floor(Math.random()*weapons.length)
   console.log(mage.createdAt); // Today's date
   console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
   console.log(swordsman.healthPoints); // 15
@@ -174,6 +176,7 @@ function Villain(attributes){
   
   console.log(javascriptWizard.challenge());
   console.log(javascriptMonster.answer());
+  console.log(javascriptWizard.weapons());
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
