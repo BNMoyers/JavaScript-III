@@ -41,20 +41,33 @@ me.beFunny('scope');
 // 
 
 function sayBack(me) {
-    this.response = '...just no ';
+    this.yesNo = "No,"
+    this.response = '...just no.';
     this.me = me;
     this.speak = function() {
-      console.log(`No, ${this.me} ${this.response}.`);
+      console.log(`${this.yesNo} ${this.me} ${this.response}`);
       console.log(this);
     };
   }
-  const angela = new sayBack('Brittany')
- 
+  const angela = new sayBack('Brittany');
+
+  
   angela.speak();
-// code example for New Binding
-
-
+  
 
 // Principle 4
 
+const geekCred = {
+    thingBuilt: 'my own pc',
+    activeMods: '730',
+    frameRate: '60fps'
+  }
+  const tabletopCred = ['played in 10 campaigns','DM\'d 6 times', 'taken a pc to level 20']
+  
+  
+  function fanboyDefense(stat1, stat2, stat3){
+    return `Hey! I\'ve built ${this.thingBuilt}, I\'ve got ${this.activeMods} active mods running at a stable ${this.frameRate} in SkyrimSE. Tabletop? I\'ve ${stat1}, ${stat2}, and ${stat3}!`
+  }
+  console.log(fanboyDefense.apply(geekCred,tabletopCred));
+  
 // code example for Explicit Binding
